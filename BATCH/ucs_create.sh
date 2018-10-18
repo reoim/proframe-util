@@ -1,7 +1,7 @@
 #!/usr/bin/ksh
 ## ---------------------------------------------------------------------------------------------- ##
 #  @file           ucs_create.sh  
-#  @brief          ucs 상주배치 서버를 생성한다.
+#  @brief          ucs 상주배치 서버를 생성한다. (템플릿 기반)
 #
 #  @dep-program    
 #  @dep-input      배치코드(BAT_CODE)
@@ -80,7 +80,8 @@ c200_edit_template()
             echo "Error: 상주배치서버 소스 변경 실패."
             exit -1
         else
-            echo "Info: 상주배치서버 소스 변경 성공"                  
+            echo "Info: 상주배치서버 소스 변경 성공"
+            chmod 755 $FILE                  
         fi
     done
 }
