@@ -26,7 +26,13 @@ c000_init()
 
     ## 상주 배치 서버 디렉토리 생성
     cd $UCS_DIR
-    mkdir -p $BAT_DIR
+    if [ ! -d $BAT_DIR ]; then
+        mkdir $BAT_DIR
+    else
+        echo "(E): 이미 같은 이름의 상주서버 디렉토리가 존재합니다."
+        exit -1
+    fi
+    
 }
 
 ## ---------------------------------------------------------------------------------------------- ##
@@ -37,10 +43,10 @@ c100_cp_template()
     ## 상주배치 서버 템플릿 복사
     cp -f $UCS_DIR/ucsTemplate/* $BAT_DIR
     if [ $? != 0 ]; then
-        echo "Error: 상주배치서버 템플릿 복사 에러 ==>" $BAT_CODE
+        echo "(E): 상주배치서버 템플릿 복사 에러 ==>" $BAT_CODE
         exit -1
     else
-        echo "Info: 상주배치서버 템플릿 복사 성공 ==>" $BAT_CODE                  
+        echo "(D): 상주배치서버 템플릿 복사 성공 ==>" $BAT_CODE                  
     fi
 }
 
@@ -53,18 +59,18 @@ c200_edit_template()
     cd $BAT_DIR
     mv -f ucsTemplate.c $BAT_CODE'.c' 
     if [ $? != 0 ]; then
-        echo "Error: 상주배치서버 이름 변경 실패. ucsTemplate.c ==>" $BAT_CODE'.c'
+        echo "(E): 상주배치서버 이름 변경 실패. ucsTemplate.c ==>" $BAT_CODE'.c'
         exit -1
     else
-        echo "Info: 상주배치서버 이름 변경 성공. ucsTemplate.c ==>" $BAT_CODE'.c'                  
+        echo "(D): 상주배치서버 이름 변경 성공. ucsTemplate.c ==>" $BAT_CODE'.c'                  
     fi
 
     mv -f ucsTemplate.mk $BAT_CODE'.mk' 
     if [ $? != 0 ]; then
-        echo "Error: 상주배치서버 이름 변경 실패. ucsTemplate.mk ==> ${BAT_CODE}.mk"
+        echo "(E): 상주배치서버 이름 변경 실패. ucsTemplate.mk ==> ${BAT_CODE}.mk"
         exit -1
     else
-        echo "Info: 상주배치서버 이름 변경 성공. ucsTemplate.mk ==> ${BAT_CODE}.mk"                  
+        echo "(D): 상주배치서버 이름 변경 성공. ucsTemplate.mk ==> ${BAT_CODE}.mk"                  
     fi
 
 
@@ -77,10 +83,10 @@ c200_edit_template()
             sed  -i 's/ucsTemplate/'$BAT_CODE'/g' $FILE
         fi
         if [ $? != 0 ]; then
-            echo "Error: 상주배치서버 소스 변경 실패."
+            echo "(E): 상주배치서버 소스 변경 실패."
             exit -1
         else
-            echo "Info: 상주배치서버 소스 변경 성공"
+            echo "(D): 상주배치서버 소스 변경 성공"
             chmod 755 $FILE                  
         fi
     done
