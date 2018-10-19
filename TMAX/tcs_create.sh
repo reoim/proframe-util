@@ -90,6 +90,8 @@ c200_edit_template()
             chmod 755 $FILE                  
         fi
     done
+
+    echo "(D): 생성된 TCS 서버 소스 위치 ==> "$TCS_SVR_DIR
 }
 
 

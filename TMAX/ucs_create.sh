@@ -90,6 +90,8 @@ c200_edit_template()
             chmod 755 $FILE                  
         fi
     done
+
+    echo "(D): 생성된 상주배치서버 소스 위치 ==> "$BAT_DIR
 }
 
 
