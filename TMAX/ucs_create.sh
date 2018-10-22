@@ -91,7 +91,7 @@ c200_edit_template()
         fi
     done
 
-    echo "(D): 생성된 상주배치서버 소스 위치 ==> "$BAT_DIR
+    echo "(D): 생성된 상주배치서버 소스 위치 ==> ["$BAT_DIR"]"
 }
 
 

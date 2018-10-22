@@ -91,7 +91,7 @@ c200_edit_template()
         fi
     done
 
-    echo "(D): 생성된 TCS 서버 소스 위치 ==> "$TCS_SVR_DIR
+    echo "(D): 생성된 TCS 서버 소스 위치 ==> ["$TCS_SVR_DIR"]"
 }
 
 
