@@ -1,18 +1,18 @@
 #!/usr/bin/ksh
 ## ---------------------------------------------------------------------------------------------- ##
 #  @file           convert_charset.sh  
-#  @brief          charset을 변경한다.
+#  @brief          Convert charset encoding of files in the specific directory
 #
 #  @dep-program    
-#  @dep-input      기존 charset, 변경할 charset, 변경대상폴더 
+#  @dep-input      from charset, to charset, directory
 #  @dep-outfile    
-#  @usage          convert_charset.sh  {기존 charset} {변경할 charset} {변경대상폴더}  
+#  @usage          convert_charset.sh  {from charset} {to charset} {directory}  
 #                  ex) convert_charset.sh UTF-8 eucKR /myhome/test
 #  @history
 #  --------   ------     --------    -----------     ---------------------------------------------
 #  버    전 : 성  명  :  일  자   :  근거  자료    :          변       경        내       용
 #  --------   ------     --------    -----------     ---------------------------------------------
-#  VER1.00  : 이동민  :  20181019  : 신규작성      :  신규작성
+#  VER1.00  : 이동민  :  20181029  : 신규작성      :  신규작성
 ## ---------------------------------------------------------------------------------------------- ##
 if [ $# != 3 ]; then
     echo "========================================================================="
