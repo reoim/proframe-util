@@ -38,11 +38,11 @@ list=`ls`
 for filename in $list
 do
     echo $filename
-    iconv -f $from_charset -t $to_charset $filename > /dev/null 2>&1 
+    iconv -c -f $from_charset -t $to_charset $filename > /dev/null 2>&1 
     if [ $? != 0 ]; then
         echo "[$filename] Converting failed. Check from/to charset."
     else
-        iconv -f $from_charset -t $to_charset $filename > $filename.bak
+        iconv -c -f $from_charset -t $to_charset $filename > $filename.bak
         mv $filename.bak $filename
         echo "[$filename] Converting successed. [$from_charset] ==> [$to_charset]"
     fi
