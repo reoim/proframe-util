@@ -30,7 +30,7 @@ fi
 
 if [ -f $FILENAME ]; then
     while read LIST; do
-        if [`grep -q $LIST $PFMINCDIR/*.h`]; then
+        if grep -q $LIST $PFMINCDIR/*.h; then
             :
         else
             echo "$LIST not found"
